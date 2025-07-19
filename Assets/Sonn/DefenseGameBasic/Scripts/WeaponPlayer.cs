@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Sonn.DefenseGameBasic
 {
-    public class Weapon : MonoBehaviour
+    public class WeaponPlayer : MonoBehaviour
     {
         private void OnTriggerEnter2D(Collider2D col)
         {

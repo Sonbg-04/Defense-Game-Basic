@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IComponentChecking
-{   
-    bool IsComponentsNull();
+namespace Sonn.DefenseGameBasic
+{
+    public interface IComponentChecking
+    {
+        bool IsComponentsNull();
+    }
 }

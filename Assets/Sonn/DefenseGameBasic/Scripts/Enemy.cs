@@ -45,11 +45,11 @@ namespace Sonn.DefenseGameBasic
                 m_rb.velocity = new Vector2(-speed, m_rb.velocity.y);
             }
 
-            if (m_player.isDead)
-            {
-                m_anim.SetBool(Const.ATTACK_ANIMATION, false);
-                m_rb.velocity = Vector2.zero;
-            }
+            //if (m_player.isDead)
+            //{
+            //    m_anim.SetBool(Const.ATTACK_ANIMATION, false);
+            //    m_rb.velocity = Vector2.zero;
+            //}
         }
         public void Die()
         {

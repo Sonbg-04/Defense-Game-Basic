@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: -7306062505516252802}
   - component: {fileID: -504402389424684030}
   - component: {fileID: 4403624209404146906}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy_01
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,9 +75,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 759503795
+  m_SortingLayer: -1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 06999b5891d554545903a66ef95c5a31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ea56d3a608d87488c48ed3fb854ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1.5
   attackDistance: 0.85
 --- !u!1 &6338573856978805232
 GameObject:
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 2575652743910038694}
   - component: {fileID: 6883721601898388850}
   - component: {fileID: 1894714652403674803}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Weapon
   m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}

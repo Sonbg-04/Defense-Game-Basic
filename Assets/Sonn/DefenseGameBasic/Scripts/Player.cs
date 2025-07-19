@@ -8,6 +8,7 @@ namespace Sonn.DefenseGameBasic
     {
         public float attackRate;
         public bool isDead;
+        public float xScale, yScale, zScale;
 
         private Animator m_anim;
         private float m_curAttackrate;
@@ -29,16 +30,17 @@ namespace Sonn.DefenseGameBasic
 
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                transform.localScale = new Vector3(1, 1, 1);
                 transform.position += 5f * Time.deltaTime * Vector3.left;
+                transform.localScale = new Vector3(xScale, yScale, zScale);
+
             }    
             else if (Input.GetKey(KeyCode.RightArrow))
             {
-                transform.localScale = new Vector3(-1, 1, 1);
                 transform.position += 5f * Time.deltaTime * Vector3.right;
+                transform.localScale = new Vector3(-xScale, yScale, zScale);
             }
 
-            if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.T) && !m_isAttacked)
+            if (Input.GetMouseButtonDown(0) && !m_isAttacked)
             {
                 m_anim.SetBool(Const.ATTACK_ANIMATION, true);
                 m_isAttacked = true;
