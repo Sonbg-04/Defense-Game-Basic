@@ -122,6 +122,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &200496437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 724776728548318042, guid: 9835377f989e7b34a8e7c4ecb4a3431c, type: 3}
+  m_PrefabInstance: {fileID: 1152281032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &200496444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200496437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51feaa53ffdad542a3a27f5d6f6016d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRate: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +362,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 17.75, y: 1.7346697}
   m_EdgeRadius: 0
---- !u!1001 &2137837338
+--- !u!1001 &1152281032
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -354,11 +372,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 368486616421765304, guid: 9835377f989e7b34a8e7c4ecb4a3431c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.7621264
+      value: -2.0214484
       objectReference: {fileID: 0}
     - target: {fileID: 368486616421765304, guid: 9835377f989e7b34a8e7c4ecb4a3431c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.8560276
+      value: -0.45256418
       objectReference: {fileID: 0}
     - target: {fileID: 368486616421765304, guid: 9835377f989e7b34a8e7c4ecb4a3431c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -399,7 +417,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 724776728548318042, guid: 9835377f989e7b34a8e7c4ecb4a3431c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 200496444}
   m_SourcePrefab: {fileID: 100100000, guid: 9835377f989e7b34a8e7c4ecb4a3431c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -407,4 +428,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 1093792711}
-  - {fileID: 2137837338}
+  - {fileID: 1152281032}
