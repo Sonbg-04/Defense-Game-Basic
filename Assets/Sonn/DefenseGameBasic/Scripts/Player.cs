@@ -1,5 +1,4 @@
-﻿using Sonn.DefenseGameBasic;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,10 +7,12 @@ namespace Sonn.DefenseGameBasic
     public class Player : MonoBehaviour, IComponentChecking
     {
         public float attackRate;
+        public bool isDead;
+
         private Animator m_anim;
         private float m_curAttackrate;
         private bool m_isAttacked;
-        private bool m_isDead;
+        
 
         private void Awake()
         {
@@ -25,7 +26,19 @@ namespace Sonn.DefenseGameBasic
             {
                 return;
             }
-            if (Input.GetMouseButtonDown(0) && !m_isAttacked)
+
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                transform.position += 5f * Time.deltaTime * Vector3.left;
+            }    
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                transform.position += 5f * Time.deltaTime * Vector3.right;
+            }
+
+            if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.T) && !m_isAttacked)
             {
                 m_anim.SetBool(Const.ATTACK_ANIMATION, true);
                 m_isAttacked = true;
@@ -61,11 +74,11 @@ namespace Sonn.DefenseGameBasic
                 return;
             }
             
-            if (col.CompareTag(Const.ENEMY_WEAPON_TAG) && !m_isDead)
+            if (col.CompareTag(Const.ENEMY_WEAPON_TAG) && !isDead)
             {
                 m_anim.SetTrigger(Const.DEAD_ANIMATION);
-                m_isDead = true;
-            }    
+                isDead = true;
+            }     
         }
     }
 

@@ -31,8 +31,11 @@ namespace Sonn.DefenseGameBasic
             {
                 return;
             }
-            if (Vector2.Distance(m_player.transform.position,
-                     transform.position) <= attackDistance)
+
+            float distanceToPlayer = Vector2.Distance(m_player.transform.position,
+                transform.position);
+            
+            if (distanceToPlayer <= attackDistance)
             {
                 m_anim.SetBool(Const.ATTACK_ANIMATION, true);
                 m_rb.velocity = Vector2.zero;
@@ -41,7 +44,24 @@ namespace Sonn.DefenseGameBasic
             {
                 m_rb.velocity = new Vector2(-speed, m_rb.velocity.y);
             }
+
+            if (m_player.isDead)
+            {
+                m_anim.SetBool(Const.ATTACK_ANIMATION, false);
+                m_rb.velocity = Vector2.zero;
+            }
         }
+        public void Die()
+        {
+            if (IsComponentsNull())
+            {
+                return;
+            }
+
+            m_anim.SetTrigger(Const.DEAD_ANIMATION);
+            m_rb.velocity = Vector2.zero;
+            gameObject.layer = LayerMask.NameToLayer(Const.DEAD_LAYER);
+        }    
     }
 
 }
