@@ -12,6 +12,8 @@ namespace Sonn.DefenseGameBasic
         private Animator m_anim;
         private Rigidbody2D m_rb;
         private Player m_player;
+        private bool m_isDead;
+        private GameManager m_game;
 
         public bool IsComponentsNull()
         {
@@ -23,6 +25,7 @@ namespace Sonn.DefenseGameBasic
             m_anim = GetComponent<Animator>();
             m_rb = GetComponent<Rigidbody2D>();
             m_player = FindObjectOfType<Player>();
+            m_game = FindObjectOfType<GameManager>();
         }
 
         void Update()
@@ -53,14 +56,19 @@ namespace Sonn.DefenseGameBasic
         }
         public void Die()
         {
-            if (IsComponentsNull())
+            if (IsComponentsNull() || m_isDead)
             {
                 return;
             }
-
+            m_isDead = true;
             m_anim.SetTrigger(Const.DEAD_ANIMATION);
             m_rb.velocity = Vector2.zero;
             gameObject.layer = LayerMask.NameToLayer(Const.DEAD_LAYER);
+            if (m_game)
+            {
+                m_game.Score++;
+            }
+            Destroy(gameObject, 2f);
         }    
     }
 

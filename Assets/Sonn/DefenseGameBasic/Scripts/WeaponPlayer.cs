@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +6,8 @@ namespace Sonn.DefenseGameBasic
 {
     public class WeaponPlayer : MonoBehaviour
     {
+
+        // Va chạm Trigger
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (col.CompareTag(Const.ENEMY_TAG))

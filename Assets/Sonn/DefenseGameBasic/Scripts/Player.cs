@@ -69,6 +69,8 @@ namespace Sonn.DefenseGameBasic
         {
             return m_anim == null;
         }
+
+        // Va chạm Trigger
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (IsComponentsNull())
@@ -80,6 +82,7 @@ namespace Sonn.DefenseGameBasic
             {
                 m_anim.SetTrigger(Const.DEAD_ANIMATION);
                 isDead = true;
+                gameObject.layer = LayerMask.NameToLayer(Const.DEAD_LAYER);
             }     
         }
     }
