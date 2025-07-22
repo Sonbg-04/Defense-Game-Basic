@@ -322,7 +322,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 97690656
+  m_TextStyleHashCode: 98732960
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -1130,7 +1130,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 97690656
+  m_TextStyleHashCode: 98732960
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -1461,7 +1461,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 97690656
+  m_TextStyleHashCode: 98732960
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -2008,7 +2008,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 97690656
+  m_TextStyleHashCode: 98732960
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -2290,6 +2290,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902807035}
   m_CullTransparentMesh: 1
+--- !u!1 &904539995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 904539997}
+  - component: {fileID: 904539996}
+  m_Layer: 0
+  m_Name: GUIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &904539996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904539995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bd1a67f63319c40a04c1f7fe696ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  homeGUI: {fileID: 1467874404}
+  gameGUI: {fileID: 200081247}
+  gameOverDialog: {fileID: 0}
+  mainCoinTxt: {fileID: 1057849828}
+  gamePlayCoinTxt: {fileID: 1021760774}
+--- !u!4 &904539997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904539995}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &927508827
 GameObject:
   m_ObjectHideFlags: 0
@@ -2775,7 +2824,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 97690656
+  m_TextStyleHashCode: 98732960
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -3076,7 +3125,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 97690656
+  m_TextStyleHashCode: 98732960
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -3210,7 +3259,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 97690656
+  m_TextStyleHashCode: 98732960
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -3344,7 +3393,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 97690656
+  m_TextStyleHashCode: 98732960
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -3744,7 +3793,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 97690656
+  m_TextStyleHashCode: 98732960
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -4044,7 +4093,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 97690656
+  m_TextStyleHashCode: 98732960
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -4940,7 +4989,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 97690656
+  m_TextStyleHashCode: 98732960
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -5235,7 +5284,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 98732960
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -5459,7 +5508,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 97690656
+  m_TextStyleHashCode: 98732960
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -5593,7 +5642,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 97690656
+  m_TextStyleHashCode: 98732960
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -6055,6 +6104,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 492080459}
     m_Modifications:
+    - target: {fileID: 2672198294470737274, guid: b35451ac18f82d941a85c9ffa4bebc11, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: 98732960
+      objectReference: {fileID: 0}
     - target: {fileID: 3770327314274069793, guid: b35451ac18f82d941a85c9ffa4bebc11, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6151,7 +6204,8 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1093792711}
   - {fileID: 993923025}
+  - {fileID: 255472905}
   - {fileID: 112138601}
   - {fileID: 1218329970}
-  - {fileID: 255472905}
   - {fileID: 1871558677}
+  - {fileID: 904539997}

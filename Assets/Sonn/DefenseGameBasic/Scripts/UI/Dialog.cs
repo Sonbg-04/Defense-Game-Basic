@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Sonn.DefenseGameBasic
 {
     public class Dialog : MonoBehaviour
     {
-        public Text titleTxt, contentTxt;
+        public TextMeshProUGUI titleTxt, contentTxt;
 
         public virtual void Show(bool isShow)
         {
