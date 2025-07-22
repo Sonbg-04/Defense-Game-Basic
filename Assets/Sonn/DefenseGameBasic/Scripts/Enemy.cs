@@ -6,8 +6,7 @@ namespace Sonn.DefenseGameBasic
 {
     public class Enemy : MonoBehaviour, IComponentChecking
     {
-        public float speed;
-        public float attackDistance;
+        public float speed, attackDistance;
         public int minCoinBonus, maxCoinBonus;
 
         private Animator m_anim;
@@ -67,7 +66,6 @@ namespace Sonn.DefenseGameBasic
             gameObject.layer = LayerMask.NameToLayer(Const.DEAD_LAYER);
             m_game.Score++;
             int coinBonus = Random.Range(minCoinBonus, maxCoinBonus);
-            Debug.Log("Coin Bonus: " + coinBonus);
             Pref.coins += coinBonus;
             Destroy(gameObject, 2f);
         }    
