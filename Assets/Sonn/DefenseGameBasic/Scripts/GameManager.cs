@@ -4,10 +4,11 @@ using UnityEngine;
 
 namespace Sonn.DefenseGameBasic
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoBehaviour, IComponentChecking
     {
         public float spawnTime;
         public Enemy[] enemyPrefabs;
+        public GUIManager guiManager;
 
         private bool m_isGameOver;
         private int m_score;
@@ -18,7 +19,12 @@ namespace Sonn.DefenseGameBasic
         // Start is called before the first frame update
         void Start()
         {
-            StartCoroutine(SpawnEnemies());
+            //StartCoroutine(SpawnEnemies());
+            if (IsComponentsNull())
+            {
+                return;
+            }
+            guiManager.ShowGameGUI(false);
         }
 
         // Update is called once per frame
@@ -44,6 +50,11 @@ namespace Sonn.DefenseGameBasic
 
                 yield return new WaitForSeconds(spawnTime);
             }    
-        }    
+        }
+
+        public bool IsComponentsNull()
+        {
+            return guiManager == null;
+        }
     }
 }
