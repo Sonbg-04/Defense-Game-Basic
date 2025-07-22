@@ -15,24 +15,22 @@ namespace Sonn.DefenseGameBasic
 
         public int Score { get => m_score; set => m_score = value; }
 
-
-        // Start is called before the first frame update
         void Start()
         {
-            //StartCoroutine(SpawnEnemies());
+            
             if (IsComponentsNull())
             {
                 return;
             }
             guiManager.ShowGameGUI(false);
+            guiManager.UpdateMainCoins();
         }
-
-        // Update is called once per frame
-        void Update()
+        public void PlayGame()
         {
-
+            guiManager.ShowGameGUI(true);
+            StartCoroutine(SpawnEnemies());
+            guiManager.UpdateGamePlayCoins();
         }
-
         IEnumerator SpawnEnemies()
         {
             while (!m_isGameOver)

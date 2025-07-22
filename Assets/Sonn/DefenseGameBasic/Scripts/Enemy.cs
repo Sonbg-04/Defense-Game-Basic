@@ -65,8 +65,14 @@ namespace Sonn.DefenseGameBasic
             m_rb.velocity = Vector2.zero;
             gameObject.layer = LayerMask.NameToLayer(Const.DEAD_LAYER);
             m_game.Score++;
+
             int coinBonus = Random.Range(minCoinBonus, maxCoinBonus);
             Pref.coins += coinBonus;
+
+            if (m_game.guiManager)
+            {
+                m_game.guiManager.UpdateGamePlayCoins();
+            }    
             Destroy(gameObject, 2f);
         }    
     }
