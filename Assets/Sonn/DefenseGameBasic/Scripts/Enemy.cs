@@ -8,6 +8,7 @@ namespace Sonn.DefenseGameBasic
     {
         public float speed;
         public float attackDistance;
+        public int minCoinBonus, maxCoinBonus;
 
         private Animator m_anim;
         private Rigidbody2D m_rb;
@@ -17,7 +18,7 @@ namespace Sonn.DefenseGameBasic
 
         public bool IsComponentsNull()
         {
-            return m_anim == null || m_rb == null || m_player == null;
+            return m_anim == null || m_rb == null || m_player == null || m_game == null;
         }
 
         private void Awake()
@@ -64,10 +65,10 @@ namespace Sonn.DefenseGameBasic
             m_anim.SetTrigger(Const.DEAD_ANIMATION);
             m_rb.velocity = Vector2.zero;
             gameObject.layer = LayerMask.NameToLayer(Const.DEAD_LAYER);
-            if (m_game)
-            {
-                m_game.Score++;
-            }
+            m_game.Score++;
+            int coinBonus = Random.Range(minCoinBonus, maxCoinBonus);
+            Debug.Log("Coin Bonus: " + coinBonus);
+            Pref.coins += coinBonus;
             Destroy(gameObject, 2f);
         }    
     }

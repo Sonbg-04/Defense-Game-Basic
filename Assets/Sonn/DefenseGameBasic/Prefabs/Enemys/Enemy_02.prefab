@@ -290,4 +290,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  attackDistance: 2.1
+  attackDistance: 1.7
+  minCoinBonus: 100
+  maxCoinBonus: 200

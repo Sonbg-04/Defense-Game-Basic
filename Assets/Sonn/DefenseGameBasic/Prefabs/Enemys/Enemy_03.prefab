@@ -196,6 +196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   attackDistance: 1.6
+  minCoinBonus: 300
+  maxCoinBonus: 500
 --- !u!1 &4655794441207658644
 GameObject:
   m_ObjectHideFlags: 0
