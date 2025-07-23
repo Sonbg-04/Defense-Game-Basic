@@ -13,12 +13,14 @@ namespace Sonn.DefenseGameBasic
         private Animator m_anim;
         private float m_curAttackrate;
         private bool m_isAttacked;
-        
+        private GameManager m_game;
+
 
         private void Awake()
         {
             m_anim = GetComponent<Animator>();
             m_curAttackrate = attackRate;
+            m_game = FindObjectOfType<GameManager>();
         }
 
         void Update()
@@ -67,7 +69,7 @@ namespace Sonn.DefenseGameBasic
 
         public bool IsComponentsNull()
         {
-            return m_anim == null;
+            return m_anim == null || m_game == null;
         }
 
         // Va chạm Trigger
@@ -83,6 +85,7 @@ namespace Sonn.DefenseGameBasic
                 m_anim.SetTrigger(Const.DEAD_ANIMATION);
                 isDead = true;
                 gameObject.layer = LayerMask.NameToLayer(Const.DEAD_LAYER);
+                m_game.GameOver();
             }     
         }
     }

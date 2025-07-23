@@ -31,6 +31,20 @@ namespace Sonn.DefenseGameBasic
             StartCoroutine(SpawnEnemies());
             guiManager.UpdateGamePlayCoins();
         }
+        public void GameOver()
+        {
+            if (m_isGameOver)
+            {
+                return;
+            }
+            m_isGameOver = true;
+            Pref.bestScore = m_score;
+            if (guiManager.gameOverDialog)
+            {
+                guiManager.gameOverDialog.Show(true);
+            }    
+            
+        }
         IEnumerator SpawnEnemies()
         {
             while (!m_isGameOver)
