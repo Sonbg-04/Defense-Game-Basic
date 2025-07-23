@@ -22,6 +22,7 @@ namespace Sonn.DefenseGameBasic
 
         public const string MUSIC_VOL_PREF = "MusicGame";
         public const string SOUND_VOL_PREF = "SoundsGame";
+
         public const string MUSIC_VOLUME = "MusicVolume";
         public const string SOUND_VOLUME = "SoundVolume";
 

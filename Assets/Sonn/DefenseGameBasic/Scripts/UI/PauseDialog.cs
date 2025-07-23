@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace Sonn.DefenseGameBasic
 {
-    public class PauseDialog : Dialog
+    public class PauseDialog : Dialog, IComponentChecking
     {
         private AudioManager m_audioManager;
         public override void Show(bool isShow)
@@ -13,10 +13,11 @@ namespace Sonn.DefenseGameBasic
             Time.timeScale = 0f;
             base.Show(isShow);
             m_audioManager = FindObjectOfType<AudioManager>();
-            if (m_audioManager)
+            if (IsComponentsNull())
             {
-                m_audioManager.PauseMusic(m_audioManager.musicSource);
-            }    
+                return;
+            }
+            m_audioManager.PauseMusic(m_audioManager.musicSource);
         }
 
         public override void CloseDialog()
@@ -26,17 +27,23 @@ namespace Sonn.DefenseGameBasic
         }
         public void ResumeGame()
         {
-            CloseDialog();
-            if (m_audioManager)
+            if (IsComponentsNull())
             {
-                m_audioManager.ResumeMusic(m_audioManager.musicSource);
+                return;
             }
+            CloseDialog();
+            m_audioManager.ResumeMusic(m_audioManager.musicSource);
         }
         public void Replay()
         {
             CloseDialog();
             SceneManager.LoadScene(Const.GAME_PLAY_SCREEN);
-        }    
+        }
+
+        public bool IsComponentsNull()
+        {
+            return m_audioManager == null;
+        }
     }
 
 }

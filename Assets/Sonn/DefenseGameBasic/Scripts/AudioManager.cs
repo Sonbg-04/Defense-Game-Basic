@@ -8,38 +8,21 @@ namespace Sonn.DefenseGameBasic
     public class AudioManager : MonoBehaviour, IComponentChecking
     {
         public AudioSource musicSource, atkSource, enemyDeadSource, gameOverSource;
-        public SettingsDialog settings;
 
-        private void Start()
-        {
-            ApplySavedVolume();
-            PlayMusic(musicSource);
-        }
-        public void ApplySavedVolume()
-        {
-            if (IsComponentsNull())
-            {
-                return;
-            }
 
-            float musicVolume = PlayerPrefs.HasKey(Const.MUSIC_VOLUME) ? PlayerPrefs.GetFloat(Const.MUSIC_VOLUME) : 1f;
-            float soundVolume = PlayerPrefs.HasKey(Const.SOUND_VOLUME) ? PlayerPrefs.GetFloat(Const.SOUND_VOLUME) : 1f;
-            
-            settings.myAudioMixer.SetFloat(Const.MUSIC_VOL_PREF, Mathf.Log10(musicVolume) * 20);
-            settings.myAudioMixer.SetFloat(Const.SOUND_VOL_PREF, Mathf.Log10(soundVolume) * 20);
-        }    
         public bool IsComponentsNull()
         {
             return musicSource == null || atkSource == null || enemyDeadSource == null 
-                || gameOverSource == null || settings == null;
+                || gameOverSource == null;
         }
+        
         public void PlayMusic(AudioSource audioSource)
         {
             if (IsComponentsNull())
             {
                 return;
             }
-            if (audioSource && audioSource.enabled)
+            if (audioSource)
             {
                 audioSource.Play();
             }
@@ -50,7 +33,8 @@ namespace Sonn.DefenseGameBasic
             {
                 return;
             }
-            if (audioSource && audioSource.enabled)
+
+            if (audioSource)
             {
                 audioSource.Pause();
             }
@@ -61,7 +45,8 @@ namespace Sonn.DefenseGameBasic
             {
                 return;
             }
-            if (audioSource && audioSource.enabled)
+
+            if (audioSource)
             {
                 audioSource.UnPause();
             }
@@ -72,7 +57,8 @@ namespace Sonn.DefenseGameBasic
             {
                 return;
             }
-            if (audioSource && audioSource.enabled)
+
+            if (audioSource)
             {
                 audioSource.PlayOneShot(audioSource.clip);
             }

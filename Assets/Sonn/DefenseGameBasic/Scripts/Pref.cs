@@ -31,17 +31,17 @@ namespace Sonn.DefenseGameBasic
             get => PlayerPrefs.GetInt(Const.COIN_PREF, 0);
         }
 
-        //public static float musicVolume
-        //{
-        //    set => PlayerPrefs.SetFloat(Const.MUSIC_VOL_PREF, value);
-        //    get => PlayerPrefs.GetFloat(Const.MUSIC_VOL_PREF, 0);
-        //}
+        public static float musicVolume
+        {
+            set => PlayerPrefs.SetFloat(Const.MUSIC_VOLUME, value);
+            get => PlayerPrefs.GetFloat(Const.MUSIC_VOLUME, 0.5f);
+        }
 
-        //public static float soundVolume
-        //{
-        //    set => PlayerPrefs.SetFloat(Const.SOUND_VOL_PREF, value);
-        //    get => PlayerPrefs.GetFloat(Const.SOUND_VOL_PREF, 0);
-        //}
+        public static float soundVolume
+        {
+            set => PlayerPrefs.SetFloat(Const.SOUND_VOLUME, value);
+            get => PlayerPrefs.GetFloat(Const.SOUND_VOLUME, 0.5f);
+        }
 
         public static void SetBool(string key, bool value)
         {

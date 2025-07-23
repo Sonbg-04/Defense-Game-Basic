@@ -16,7 +16,7 @@ namespace Sonn.DefenseGameBasic
             if (bestScoreTxt)
             {
                 bestScoreTxt.text = Pref.bestScore.ToString("0000");
-            }    
+            }
         }
 
         public void RePlay()

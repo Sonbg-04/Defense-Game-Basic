@@ -504,6 +504,7 @@ MonoBehaviour:
   guiManager: {fileID: 904539996}
   shopManager: {fileID: 1218329969}
   audioManager: {fileID: 806683507}
+  settingsDialog: {fileID: 1344042895}
 --- !u!4 &112138601
 Transform:
   m_ObjectHideFlags: 0
@@ -2232,7 +2233,6 @@ MonoBehaviour:
   atkSource: {fileID: 1885786564}
   enemyDeadSource: {fileID: 1519147007}
   gameOverSource: {fileID: 231522186}
-  settings: {fileID: 1344042895}
 --- !u!1 &847077736
 GameObject:
   m_ObjectHideFlags: 0

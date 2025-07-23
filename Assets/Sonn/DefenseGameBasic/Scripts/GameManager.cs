@@ -11,6 +11,7 @@ namespace Sonn.DefenseGameBasic
         public GUIManager guiManager;
         public ShopManager shopManager;
         public AudioManager audioManager;
+        public SettingsDialog settingsDialog;
 
         private bool m_isGameOver;
         private int m_score;
@@ -24,8 +25,13 @@ namespace Sonn.DefenseGameBasic
             {
                 return;
             }
+
             guiManager.ShowGameGUI(false);
             guiManager.UpdateMainCoins();
+
+            settingsDialog.LoadVolumeSettings();
+
+            audioManager.PlayMusic(audioManager.musicSource);
         }
         public void ActivePlayer()
         {
@@ -33,15 +39,18 @@ namespace Sonn.DefenseGameBasic
             {
                 return;
             }
+
             if (m_currentPlayer)
             {
                 Destroy(m_currentPlayer.gameObject);
             }
+
             var shopItem = shopManager.items;
             if (shopItem == null || shopItem.Length <= 0)
             {
                 return;
-            }    
+            }  
+            
             var newPlayerPrefab = shopItem[Pref.curPlayerId].playerPrefabs;
             if (newPlayerPrefab)
             {
@@ -56,11 +65,15 @@ namespace Sonn.DefenseGameBasic
             {
                 return;
             }
+
             ActivePlayer();
-            guiManager.ShowGameGUI(true);
+
             StartCoroutine(SpawnEnemies());
+
+            guiManager.ShowGameGUI(true);
             guiManager.UpdateGamePlayCoins();
         }
+
         public void GameOver()
         {
             if (m_isGameOver)
@@ -73,7 +86,7 @@ namespace Sonn.DefenseGameBasic
             {
                 guiManager.gameOverDialog.Show(true);
             }
-            audioManager.PlaySoundOneShots(audioManager.gameOverSource);
+            audioManager.PlaySoundOneShots(audioManager.gameOverSource);    
         }
         IEnumerator SpawnEnemies()
         {
