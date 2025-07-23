@@ -7,10 +7,16 @@ namespace Sonn.DefenseGameBasic
 {
     public class PauseDialog : Dialog
     {
+        private AudioManager m_audioManager;
         public override void Show(bool isShow)
         {
             Time.timeScale = 0f;
             base.Show(isShow);
+            m_audioManager = FindObjectOfType<AudioManager>();
+            if (m_audioManager)
+            {
+                m_audioManager.PauseMusic(m_audioManager.musicSource);
+            }    
         }
 
         public override void CloseDialog()
@@ -21,6 +27,10 @@ namespace Sonn.DefenseGameBasic
         public void ResumeGame()
         {
             CloseDialog();
+            if (m_audioManager)
+            {
+                m_audioManager.ResumeMusic(m_audioManager.musicSource);
+            }
         }
         public void Replay()
         {

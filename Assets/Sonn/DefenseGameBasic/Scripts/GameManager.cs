@@ -10,6 +10,7 @@ namespace Sonn.DefenseGameBasic
         public Enemy[] enemyPrefabs;
         public GUIManager guiManager;
         public ShopManager shopManager;
+        public AudioManager audioManager;
 
         private bool m_isGameOver;
         private int m_score;
@@ -19,7 +20,6 @@ namespace Sonn.DefenseGameBasic
 
         void Start()
         {
-            
             if (IsComponentsNull())
             {
                 return;
@@ -52,6 +52,10 @@ namespace Sonn.DefenseGameBasic
         
         public void PlayGame()
         {
+            if (IsComponentsNull())
+            {
+                return;
+            }
             ActivePlayer();
             guiManager.ShowGameGUI(true);
             StartCoroutine(SpawnEnemies());
@@ -68,8 +72,8 @@ namespace Sonn.DefenseGameBasic
             if (guiManager.gameOverDialog)
             {
                 guiManager.gameOverDialog.Show(true);
-            }    
-            
+            }
+            audioManager.PlaySoundOneShots(audioManager.gameOverSource);
         }
         IEnumerator SpawnEnemies()
         {
@@ -92,7 +96,7 @@ namespace Sonn.DefenseGameBasic
 
         public bool IsComponentsNull()
         {
-            return guiManager == null || shopManager == null;
+            return guiManager == null || shopManager == null || audioManager == null;
         }
     }
 }

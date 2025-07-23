@@ -40,7 +40,7 @@ namespace Sonn.DefenseGameBasic
             
             if (distanceToPlayer <= attackDistance)
             {
-                m_anim.SetBool(Const.ATTACK_ANIMATION, true);
+                m_anim.SetBool(Const.ATTACK_ANIMATION, true);    
                 m_rb.velocity = Vector2.zero;
             }
             else
@@ -72,6 +72,10 @@ namespace Sonn.DefenseGameBasic
             if (m_game.guiManager)
             {
                 m_game.guiManager.UpdateGamePlayCoins();
+            }
+            if (m_game.audioManager)
+            {
+                m_game.audioManager.PlaySoundOneShots(m_game.audioManager.enemyDeadSource);
             }    
             Destroy(gameObject, 2f);
         }    

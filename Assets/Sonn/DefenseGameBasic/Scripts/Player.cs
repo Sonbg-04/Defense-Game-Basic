@@ -45,7 +45,11 @@ namespace Sonn.DefenseGameBasic
             if (Input.GetMouseButtonDown(0) && !m_isAttacked)
             {
                 m_anim.SetBool(Const.ATTACK_ANIMATION, true);
-                m_isAttacked = true;
+                m_isAttacked = true; 
+                if (m_game.audioManager)
+                {
+                    m_game.audioManager.PlaySoundOneShots(m_game.audioManager.atkSource);
+                }
             }
             if (m_isAttacked)
             {
@@ -84,7 +88,7 @@ namespace Sonn.DefenseGameBasic
             {
                 m_anim.SetTrigger(Const.DEAD_ANIMATION);
                 isDead = true;
-                gameObject.layer = LayerMask.NameToLayer(Const.DEAD_LAYER);
+                gameObject.layer = LayerMask.NameToLayer(Const.DEAD_LAYER);               
                 m_game.GameOver();
             }     
         }

@@ -20,8 +20,10 @@ namespace Sonn.DefenseGameBasic
         public const string CUR_PLAYER_ID_PREF = "cur_player_id";
         public const string COIN_PREF = "coins";
 
-        public const string MUSIC_VOL_PREF = "music_vol";
-        public const string SOUND_VOL_PREF = "sound_vol";
+        public const string MUSIC_VOL_PREF = "MusicGame";
+        public const string SOUND_VOL_PREF = "SoundsGame";
+        public const string MUSIC_VOLUME = "MusicVolume";
+        public const string SOUND_VOLUME = "SoundVolume";
 
         public const string GAME_PLAY_SCREEN = "Gameplay";
     }
