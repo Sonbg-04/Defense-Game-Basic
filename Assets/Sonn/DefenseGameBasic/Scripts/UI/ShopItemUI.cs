@@ -11,6 +11,7 @@ namespace Sonn.DefenseGameBasic
         public TextMeshProUGUI priceTxt;
         public Image hud;
         public Button btn;
+
         public void UpdateUI(ShopItem item, int itemIndex)
         {
             if (item == null)
@@ -29,12 +30,12 @@ namespace Sonn.DefenseGameBasic
                     if (priceTxt)
                     {
                         priceTxt.text = "Active";
-                    }
-                    else if (priceTxt)
-                    {
-                        priceTxt.text = "Owned";
                     }    
-                }    
+                }
+                else if (priceTxt)
+                {
+                    priceTxt.text = "Owned";
+                }
             }
             else
             {

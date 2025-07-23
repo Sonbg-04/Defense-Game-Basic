@@ -9,9 +9,11 @@ namespace Sonn.DefenseGameBasic
         public float spawnTime;
         public Enemy[] enemyPrefabs;
         public GUIManager guiManager;
+        public ShopManager shopManager;
 
         private bool m_isGameOver;
         private int m_score;
+        private Player m_currentPlayer;
 
         public int Score { get => m_score; set => m_score = value; }
 
@@ -25,8 +27,32 @@ namespace Sonn.DefenseGameBasic
             guiManager.ShowGameGUI(false);
             guiManager.UpdateMainCoins();
         }
+        public void ActivePlayer()
+        {
+            if (IsComponentsNull())
+            {
+                return;
+            }
+            if (m_currentPlayer)
+            {
+                Destroy(m_currentPlayer.gameObject);
+            }
+            var shopItem = shopManager.items;
+            if (shopItem == null || shopItem.Length <= 0)
+            {
+                return;
+            }    
+            var newPlayerPrefab = shopItem[Pref.curPlayerId].playerPrefabs;
+            if (newPlayerPrefab)
+            {
+                m_currentPlayer = Instantiate(newPlayerPrefab, new Vector3(-7f, -1f, 0f), Quaternion.identity);
+
+            }    
+        }   
+        
         public void PlayGame()
         {
+            ActivePlayer();
             guiManager.ShowGameGUI(true);
             StartCoroutine(SpawnEnemies());
             guiManager.UpdateGamePlayCoins();
@@ -66,7 +92,7 @@ namespace Sonn.DefenseGameBasic
 
         public bool IsComponentsNull()
         {
-            return guiManager == null;
+            return guiManager == null || shopManager == null;
         }
     }
 }

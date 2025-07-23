@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -45,9 +45,14 @@ namespace Sonn.DefenseGameBasic
                 itemUIClone.transform.localScale = Vector3.one;
                 itemUIClone.transform.localPosition = Vector3.zero;
                 itemUIClone.UpdateUI(item, idx);
+                if (itemUIClone.btn)
+                {
+                    itemUIClone.btn.onClick.RemoveAllListeners();
+                    itemUIClone.btn.onClick.AddListener(() => ItemEvent(item, idx));
+                }    
             }    
         }
-        private void ClearChilds()
+        public void ClearChilds()
         {
             if (gridRoot == null || gridRoot.childCount <= 0)
             {
@@ -62,6 +67,38 @@ namespace Sonn.DefenseGameBasic
                 }    
             }
         }
+        private void ItemEvent(ShopItem item, int itemIdx)
+        {
+            if (item == null)
+            {
+                return;
+            }    
+            bool isUnlocked = Pref.GetBool(Const.PLAYER_PREFIX_PREF + itemIdx);
+            if (isUnlocked)
+            {
+                if (itemIdx == Pref.curPlayerId)
+                {
+                    return;
+                }    
+                Pref.curPlayerId = itemIdx;
+                UpdateUI();
+            }
+            else if (Pref.coins >= item.price)
+            {
+                Pref.coins -= item.price;
+                Pref.SetBool(Const.PLAYER_PREFIX_PREF + itemIdx, true);
+                Pref.curPlayerId = itemIdx;
+                UpdateUI();
+                if (m_game.guiManager)
+                {
+                    m_game.guiManager.UpdateMainCoins();
+                }
+            }
+            else
+            {
+                Debug.Log("Bạn không đủ tiền để mua!");
+            }    
+        }    
     }
 }
 
