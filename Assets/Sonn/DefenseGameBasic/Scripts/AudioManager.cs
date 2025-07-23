@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -8,7 +8,6 @@ namespace Sonn.DefenseGameBasic
     public class AudioManager : MonoBehaviour, IComponentChecking
     {
         public AudioSource musicSource, atkSource, enemyDeadSource, gameOverSource;
-
 
         public bool IsComponentsNull()
         {
@@ -22,9 +21,13 @@ namespace Sonn.DefenseGameBasic
             {
                 return;
             }
+
             if (audioSource)
             {
-                audioSource.Play();
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.Play();
+                }
             }
         }
         public void PauseMusic(AudioSource audioSource)

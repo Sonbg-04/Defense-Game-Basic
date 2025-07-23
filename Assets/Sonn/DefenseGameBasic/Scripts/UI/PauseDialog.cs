@@ -36,8 +36,13 @@ namespace Sonn.DefenseGameBasic
         }
         public void Replay()
         {
+            if (IsComponentsNull())
+            {
+                return;
+            }
             CloseDialog();
             SceneManager.LoadScene(Const.GAME_PLAY_SCREEN);
+            
         }
 
         public bool IsComponentsNull()
