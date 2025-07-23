@@ -2232,6 +2232,7 @@ MonoBehaviour:
   atkSource: {fileID: 1885786564}
   enemyDeadSource: {fileID: 1519147007}
   gameOverSource: {fileID: 231522186}
+  settings: {fileID: 0}
 --- !u!1 &847077736
 GameObject:
   m_ObjectHideFlags: 0
