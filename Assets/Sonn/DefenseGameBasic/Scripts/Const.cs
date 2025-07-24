@@ -27,5 +27,7 @@ namespace Sonn.DefenseGameBasic
         public const string SOUND_VOLUME = "SoundVolume";
 
         public const string GAME_PLAY_SCREEN = "Gameplay";
+
+        public const string DONT_DESTROY_TAG = "DontDestroy";
     }
 }

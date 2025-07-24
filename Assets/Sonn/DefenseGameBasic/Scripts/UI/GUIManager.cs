@@ -7,9 +7,16 @@ namespace Sonn.DefenseGameBasic
 {
     public class GUIManager : MonoBehaviour
     {
+        public static GUIManager Ins;
+
         public GameObject homeGUI, gameGUI;
         public Dialog gameOverDialog;
         public TextMeshProUGUI mainCoinTxt, gamePlayCoinTxt;
+
+        private void Awake()
+        {
+            Ins = this;
+        }
 
         public void ShowGameGUI(bool isShow)
         {

@@ -501,9 +501,6 @@ MonoBehaviour:
   - {fileID: 4403624209404146906, guid: 064689c14ede66844b09187dfe54de51, type: 3}
   - {fileID: 7253584282996599195, guid: fb834a8150d21e941ba8cf2e26fce785, type: 3}
   - {fileID: 2137827927239903649, guid: 0ab0aaeafc4b6164a8706ced003dd048, type: 3}
-  guiManager: {fileID: 904539996}
-  shopManager: {fileID: 1218329969}
-  audioManager: {fileID: 806683507}
   settingsDialog: {fileID: 1344042895}
 --- !u!4 &112138601
 Transform:
@@ -601,10 +598,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 353518893}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 275, y: -65}
+  m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &224106510
 MonoBehaviour:
@@ -1044,7 +1041,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 340, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &353518894
 MonoBehaviour:
@@ -5606,7 +5603,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1467874405
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6754,10 +6751,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 353518893}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65, y: -65}
+  m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1893296284
 MonoBehaviour:

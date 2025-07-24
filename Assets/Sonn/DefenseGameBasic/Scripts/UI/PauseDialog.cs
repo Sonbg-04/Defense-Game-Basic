@@ -7,17 +7,15 @@ namespace Sonn.DefenseGameBasic
 {
     public class PauseDialog : Dialog, IComponentChecking
     {
-        private AudioManager m_audioManager;
         public override void Show(bool isShow)
         {
             Time.timeScale = 0f;
             base.Show(isShow);
-            m_audioManager = FindObjectOfType<AudioManager>();
             if (IsComponentsNull())
             {
                 return;
             }
-            m_audioManager.PauseMusic(m_audioManager.musicSource);
+            AudioManager.Ins.PauseMusic(AudioManager.Ins.musicSource);
         }
 
         public override void CloseDialog()
@@ -32,7 +30,7 @@ namespace Sonn.DefenseGameBasic
                 return;
             }
             CloseDialog();
-            m_audioManager.ResumeMusic(m_audioManager.musicSource);
+            AudioManager.Ins.ResumeMusic(AudioManager.Ins.musicSource);
         }
         public void Replay()
         {
@@ -47,7 +45,7 @@ namespace Sonn.DefenseGameBasic
 
         public bool IsComponentsNull()
         {
-            return m_audioManager == null;
+            return AudioManager.Ins == null;
         }
     }
 

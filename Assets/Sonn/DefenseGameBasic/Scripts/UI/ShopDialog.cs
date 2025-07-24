@@ -9,19 +9,14 @@ namespace Sonn.DefenseGameBasic
         public Transform gridRoot;
         public ShopItemUI itemUIPrefabs;
 
-        private ShopManager m_shopManager;
-        private GameManager m_game;
-
         public bool IsComponentsNull()
         {
-            return m_shopManager == null || m_game == null || gridRoot == null;
+            return ShopManager.Ins == null || GameManager.Ins == null || gridRoot == null;
         }
 
         public override void Show(bool isShow)
         {
             base.Show(isShow);
-            m_shopManager = FindObjectOfType<ShopManager>();
-            m_game = FindObjectOfType<GameManager>();
             UpdateUI();
         }
         private void UpdateUI()
@@ -31,7 +26,7 @@ namespace Sonn.DefenseGameBasic
                 return;
             }
             ClearChilds();
-            var items = m_shopManager.items;
+            var items = ShopManager.Ins.items;
             if (items == null || items.Length <= 0)
             {
                 return;
@@ -89,10 +84,7 @@ namespace Sonn.DefenseGameBasic
                 Pref.SetBool(Const.PLAYER_PREFIX_PREF + itemIdx, true);
                 Pref.curPlayerId = itemIdx;
                 UpdateUI();
-                if (m_game.guiManager)
-                {
-                    m_game.guiManager.UpdateMainCoins();
-                }
+                GUIManager.Ins.UpdateMainCoins();
             }
             else
             {

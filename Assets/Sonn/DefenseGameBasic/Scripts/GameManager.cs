@@ -6,11 +6,10 @@ namespace Sonn.DefenseGameBasic
 {
     public class GameManager : MonoBehaviour, IComponentChecking
     {
+        public static GameManager Ins;
+
         public float spawnTime;
         public Enemy[] enemyPrefabs;
-        public GUIManager guiManager;
-        public ShopManager shopManager;
-        public AudioManager audioManager;
         public SettingsDialog settingsDialog;
 
         private bool m_isGameOver;
@@ -19,6 +18,11 @@ namespace Sonn.DefenseGameBasic
 
         public int Score { get => m_score; set => m_score = value; }
 
+        private void Awake()
+        {
+            Ins = this;
+        }
+
         void Start()
         {
             if (IsComponentsNull())
@@ -26,12 +30,12 @@ namespace Sonn.DefenseGameBasic
                 return;
             }
 
-            guiManager.ShowGameGUI(false);
-            guiManager.UpdateMainCoins();
+            GUIManager.Ins.ShowGameGUI(false);
+            GUIManager.Ins.UpdateMainCoins();
 
             settingsDialog.LoadVolumeSettings();
 
-            audioManager.PlayMusic(audioManager.musicSource);
+            AudioManager.Ins.PlayMusic(AudioManager.Ins.musicSource);
         }
         public void ActivePlayer()
         {
@@ -45,7 +49,7 @@ namespace Sonn.DefenseGameBasic
                 Destroy(m_currentPlayer.gameObject);
             }
 
-            var shopItem = shopManager.items;
+            var shopItem = ShopManager.Ins.items;
             if (shopItem == null || shopItem.Length <= 0)
             {
                 return;
@@ -70,8 +74,8 @@ namespace Sonn.DefenseGameBasic
 
             StartCoroutine(SpawnEnemies());
 
-            guiManager.ShowGameGUI(true);
-            guiManager.UpdateGamePlayCoins();
+            GUIManager.Ins.ShowGameGUI(true);
+            GUIManager.Ins.UpdateGamePlayCoins();
         }
 
         public void GameOver()
@@ -82,11 +86,11 @@ namespace Sonn.DefenseGameBasic
             }
             m_isGameOver = true;
             Pref.bestScore = m_score;
-            if (guiManager.gameOverDialog)
+            if (GUIManager.Ins.gameOverDialog)
             {
-                guiManager.gameOverDialog.Show(true);
+                GUIManager.Ins.gameOverDialog.Show(true);
             }
-            audioManager.PlaySoundOneShots(audioManager.gameOverSource);    
+            AudioManager.Ins.PlaySoundOneShots(AudioManager.Ins.gameOverSource);    
         }
         IEnumerator SpawnEnemies()
         {
@@ -109,7 +113,7 @@ namespace Sonn.DefenseGameBasic
 
         public bool IsComponentsNull()
         {
-            return guiManager == null || shopManager == null || audioManager == null;
+            return GUIManager.Ins == null || ShopManager.Ins == null || AudioManager.Ins == null;
         }
     }
 }

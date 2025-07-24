@@ -8,6 +8,12 @@ namespace Sonn.DefenseGameBasic
     public class AudioManager : MonoBehaviour, IComponentChecking
     {
         public AudioSource musicSource, atkSource, enemyDeadSource, gameOverSource;
+        public static AudioManager Ins;
+
+        private void Awake()
+        {
+            Ins = this;
+        }
 
         public bool IsComponentsNull()
         {

@@ -13,11 +13,10 @@ namespace Sonn.DefenseGameBasic
         private Rigidbody2D m_rb;
         private Player m_player;
         private bool m_isDead;
-        private GameManager m_game;
 
         public bool IsComponentsNull()
         {
-            return m_anim == null || m_rb == null || m_player == null || m_game == null;
+            return m_anim == null || m_rb == null || m_player == null || GameManager.Ins == null;
         }
 
         private void Awake()
@@ -25,7 +24,6 @@ namespace Sonn.DefenseGameBasic
             m_anim = GetComponent<Animator>();
             m_rb = GetComponent<Rigidbody2D>();
             m_player = FindObjectOfType<Player>();
-            m_game = FindObjectOfType<GameManager>();
         }
 
         void Update()
@@ -64,19 +62,13 @@ namespace Sonn.DefenseGameBasic
             m_anim.SetTrigger(Const.DEAD_ANIMATION);
             m_rb.velocity = Vector2.zero;
             gameObject.layer = LayerMask.NameToLayer(Const.DEAD_LAYER);
-            m_game.Score++;
+            GameManager.Ins.Score++;
 
             int coinBonus = Random.Range(minCoinBonus, maxCoinBonus);
             Pref.coins += coinBonus;
 
-            if (m_game.guiManager)
-            {
-                m_game.guiManager.UpdateGamePlayCoins();
-            }
-            if (m_game.audioManager)
-            {
-                m_game.audioManager.PlaySoundOneShots(m_game.audioManager.enemyDeadSource);
-            }    
+            GUIManager.Ins.UpdateGamePlayCoins();
+            AudioManager.Ins.PlaySoundOneShots(AudioManager.Ins.enemyDeadSource);
             Destroy(gameObject, 2f);
         }    
     }

@@ -6,17 +6,13 @@ using UnityEngine.SceneManagement;
 
 namespace Sonn.DefenseGameBasic
 {
-    public class GameOverDialog : Dialog, IComponentChecking
+    public class GameOverDialog : Dialog
     {
         public TextMeshProUGUI bestScoreTxt;
-
-        private AudioManager m_audioManager;
-
 
         public override void Show(bool isShow)
         {
             base.Show(isShow);
-            m_audioManager = FindObjectOfType<AudioManager>();
             if (bestScoreTxt)
             {
                 bestScoreTxt.text = Pref.bestScore.ToString("0000");
@@ -25,10 +21,6 @@ namespace Sonn.DefenseGameBasic
 
         public void RePlay()
         {
-            if (IsComponentsNull())
-            {
-                return;
-            }
             CloseDialog();
             SceneManager.LoadScene(Const.GAME_PLAY_SCREEN);
         }  
@@ -36,11 +28,6 @@ namespace Sonn.DefenseGameBasic
         public void QuitGame()
         {
             Application.Quit();
-        }
-
-        public bool IsComponentsNull()
-        {
-            return m_audioManager == null;
         }
     }
 

@@ -6,21 +6,18 @@ namespace Sonn.DefenseGameBasic
 {
     public class Player : MonoBehaviour, IComponentChecking
     {
-        public float attackRate;
+        public float attackRate, xScale, yScale, zScale;
         public bool isDead;
-        public float xScale, yScale, zScale;
 
         private Animator m_anim;
         private float m_curAttackrate;
         private bool m_isAttacked;
-        private GameManager m_game;
 
 
         private void Awake()
         {
             m_anim = GetComponent<Animator>();
             m_curAttackrate = attackRate;
-            m_game = FindObjectOfType<GameManager>();
         }
 
         void Update()
@@ -30,26 +27,23 @@ namespace Sonn.DefenseGameBasic
                 return;
             }
 
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                transform.position += 5f * Time.deltaTime * Vector3.left;
-                transform.localScale = new Vector3(xScale, yScale, zScale);
+            //if (Input.GetKey(KeyCode.LeftArrow))
+            //{
+            //    transform.position += 5f * Time.deltaTime * Vector3.left;
+            //    transform.localScale = new Vector3(xScale, yScale, zScale);
 
-            }    
-            else if (Input.GetKey(KeyCode.RightArrow))
-            {
-                transform.position += 5f * Time.deltaTime * Vector3.right;
-                transform.localScale = new Vector3(-xScale, yScale, zScale);
-            }
+            //}    
+            //else if (Input.GetKey(KeyCode.RightArrow))
+            //{
+            //    transform.position += 5f * Time.deltaTime * Vector3.right;
+            //    transform.localScale = new Vector3(-xScale, yScale, zScale);
+            //}
 
             if (Input.GetMouseButtonDown(0) && !m_isAttacked)
             {
                 m_anim.SetBool(Const.ATTACK_ANIMATION, true);
-                m_isAttacked = true; 
-                if (m_game.audioManager)
-                {
-                    m_game.audioManager.PlaySoundOneShots(m_game.audioManager.atkSource);
-                }
+                m_isAttacked = true;
+                AudioManager.Ins.PlaySoundOneShots(AudioManager.Ins.atkSource);
             }
             if (m_isAttacked)
             {
@@ -73,7 +67,7 @@ namespace Sonn.DefenseGameBasic
 
         public bool IsComponentsNull()
         {
-            return m_anim == null || m_game == null;
+            return m_anim == null || GameManager.Ins == null;
         }
 
         // Va chạm Trigger
@@ -89,7 +83,7 @@ namespace Sonn.DefenseGameBasic
                 m_anim.SetTrigger(Const.DEAD_ANIMATION);
                 isDead = true;
                 gameObject.layer = LayerMask.NameToLayer(Const.DEAD_LAYER);               
-                m_game.GameOver();
+                GameManager.Ins.GameOver();
             }     
         }
     }

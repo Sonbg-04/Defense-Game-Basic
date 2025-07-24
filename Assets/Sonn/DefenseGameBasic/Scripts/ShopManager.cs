@@ -7,7 +7,13 @@ namespace Sonn.DefenseGameBasic
 {
     public class ShopManager : MonoBehaviour
     {
+        public static ShopManager Ins;
         public ShopItem[] items;
+
+        private void Awake()
+        {
+            Ins = this;
+        }
 
         void Start()
         {
